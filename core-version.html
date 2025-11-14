@@ -146,7 +146,6 @@
       }
 
       .scene-1 {
-        position: relative;
         background-image: linear-gradient(
             120deg,
             rgba(10, 10, 10, 0.8),
@@ -188,34 +187,6 @@
 
       .scene-5::before {
         background: none;
-      }
-
-      .logo-badge {
-        position: absolute;
-        top: min(20%, 150px);
-        right: clamp(2rem, 8vw, 5rem);
-        width: clamp(140px, 20vw, 240px);
-        padding: 1.25rem 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 1.75rem;
-        background: rgba(10, 10, 10, 0.75);
-        backdrop-filter: blur(12px);
-        text-align: center;
-        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.45);
-      }
-
-      .logo-badge img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .logo-badge figcaption {
-        margin-top: 0.85rem;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.4em;
-        color: rgba(234, 234, 234, 0.8);
       }
 
       .scene-3 canvas {
@@ -288,13 +259,6 @@
           text-align: left;
           justify-content: flex-start;
         }
-
-        .logo-badge {
-          position: static;
-          margin: 2rem auto 0;
-          width: min(280px, 75%);
-          box-shadow: 0 18px 32px rgba(0, 0, 0, 0.35);
-        }
       }
     </style>
   </head>
@@ -314,10 +278,6 @@
           ข้อมูลลูกค้าใน LINE OA ของคุณ มีเรื่องราวซ่อนอยู่มากกว่าที่คิด
         </p>
       </div>
-      <figure class="logo-badge">
-        <img src="Logo.png" alt="MIA — Your Growth Tech Partner" />
-        <figcaption>Your Growth Tech Partner</figcaption>
-      </figure>
     </section>
 
     <section class="scene scene-2">
