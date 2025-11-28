@@ -1,20 +1,22 @@
-
 import os
 
 def embed_image():
-   
-    with open('eagle_base64.txt', 'r') as f:
+    # อ่าน base64 จากไฟล์
+    with open('eagle_base64.txt', 'r', encoding='utf-8') as f:
         base64_data = f.read().replace('\n', '')
 
+    # อ่าน index.html แบบ ignore ตัวอักษรแปลก ๆ
+    with open('index.html', 'rb') as f:
+        html_content = f.read().decode('utf-8', errors='ignore')
 
-    with open('index.html', 'r') as f:
-        html_content = f.read()
+    # แทนที่ placeholder
+    new_content = html_content.replace(
+        "image.src = 'PLACEHOLDER';",
+        f"image.src = 'data:image/png;base64,{base64_data}';"
+    )
 
-
-    new_content = html_content.replace("image.src = 'PLACEHOLDER';", f"image.src = 'data:image/png;base64,{base64_data}';")
-
-
-    with open('index.html', 'w') as f:
+    # เขียนกลับเป็น utf-8 ปกติ
+    with open('index.html', 'w', encoding='utf-8') as f:
         f.write(new_content)
 
     print("Successfully embedded base64 image.")

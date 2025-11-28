@@ -18,7 +18,7 @@ FROM nginx:alpine
 COPY --from=builder /app/index.html /usr/share/nginx/html/index.html
 
 # Copy other static assets directly from the context
-COPY logo.png /usr/share/nginx/html/
+COPY Logo.png /usr/share/nginx/html/
 COPY eagle-brand.png /usr/share/nginx/html/
 COPY step1.jpg /usr/share/nginx/html/
 COPY step2.jpg /usr/share/nginx/html/
