@@ -42,6 +42,12 @@
             -webkit-font-smoothing: antialiased
         }
 
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+
         .site {
             max-width: none;
             margin: 0 auto;
@@ -100,9 +106,35 @@
             justify-content: space-between;
         }
 
-        @media (max-width:768px) {
+        @media (max-width:980px) {
+            .header-container {
+                padding: 0 24px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
             .header-container {
                 padding: 0 20px;
+                height: 70px;
+            }
+
+            .nav-actions {
+                display: none;
+                /* Hide desktop menu on mobile for now, or use a hamburger menu if requested later */
+            }
+
+            /* Simple mobile menu button placeholder if needed, or just keep "Request Demo" visible? 
+               For now, let's keep the primary CTA and hide others to fit space, or hide all and show a menu icon.
+               Given the request is just "adjust to fit screen", let's try to keep the most important button.
+            */
+            .nav-actions {
+                display: flex;
+                gap: 8px;
+            }
+
+            .nav-actions .btn-ghost {
+                display: none;
             }
         }
 
@@ -110,8 +142,20 @@
             .header-container {
                 padding: 0 16px;
             }
-        }
 
+            .brand img {
+                height: 40px;
+            }
+
+            .brand div {
+                font-size: 14px !important;
+            }
+
+            .brand span {
+                display: none;
+                /* Hide tagline on very small screens */
+            }
+        }
 
         .brand {
             display: flex;
@@ -311,6 +355,20 @@
             line-height: 1.6;
         }
 
+        @media (max-width: 768px) {
+            .orbital-copy {
+                bottom: 40px;
+                left: 20px;
+                right: 20px;
+                width: auto;
+                max-width: none;
+            }
+
+            .orbital-headline {
+                width: 90%;
+            }
+        }
+
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -392,7 +450,22 @@
 
         @media (max-width:980px) {
             .hero {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 32px;
+            }
+
+            .hero .eyebrow {
+                justify-content: center;
+                display: flex;
+            }
+
+            .hero p.lead {
+                margin: 0 auto 24px;
+            }
+
+            .hero>div>div[style*="display:flex"] {
+                justify-content: center;
             }
 
             .panel {
@@ -421,12 +494,24 @@
                 font-size: 2.1rem
             }
 
+            .hero h1[data-lang="th"] {
+                font-size: 2.5rem;
+            }
+
+            .hero h1[data-lang="en"] {
+                font-size: 2.8rem;
+            }
+
             .features {
                 grid-template-columns: 1fr
             }
 
             .site {
-                padding: 0 14px
+                padding: 0 20px
+            }
+
+            .scene-1 .site {
+                padding-left: 20px;
             }
         }
 
@@ -467,6 +552,27 @@
             transform: scale(1);
             opacity: 1;
             filter: blur(0px);
+        }
+
+        @media (max-width: 768px) {
+            .steps-stack {
+                padding-top: 60px;
+            }
+
+            .step-card {
+                top: 100px;
+                padding: 20px;
+                margin-bottom: 40px;
+            }
+
+            .step-card h2 {
+                font-size: 1.5rem;
+            }
+
+            .step-card img {
+                max-width: 100% !important;
+                height: auto;
+            }
         }
 
         .scene-center {
@@ -995,31 +1101,38 @@
                     <div class="steps-stack">
 
                         <div class="step-card" data-step="1">
-                            <h3>1 Landing / Awareness</h3>
-                            <h2>"อยากให้ร้านโตขึ้น ?"</h2>
-                            <p>เริ่มใช้ LINE OA อัจฉริยะใน 1 นาที</p>
+                            <h3>1 Add Friend</h3>
+                            <h2>"เริ่มต้นง่าย...แค่แอดไลน์"</h2>
+                            <p>เพิ่มเพื่อนใน LINE OA เพื่อเริ่มใช้งานทันที</p>
                             <img src="step1.jpg" alt="step-card1" style="margin-top:20px;width:100%;max-width:400px">
                         </div>
 
                         <div class="step-card" data-step="2">
-                            <h3>2 Registation / Signup</h3>
-                            <h2>ใช้ประโยชน์จากข้อมูล</h2>
-                            <p>ให้เกิดผลลัพธ์ที่คุณต้องการ</p>
+                            <h3>2 Registation</h3>
+                            <h2>"ลงทะเบียน...เพื่อดูข้อมูล"</h2>
+                            <p>กรอกข้อมูลร้านค้าเพื่อเปิดระบบ Dashboard</p>
                             <img src="step2.jpg" alt="step-card2" style="margin-top:20px;width:100%;max-width:400px">
                         </div>
 
                         <div class="step-card" data-step="3">
                             <h3>3 Payment</h3>
-                            <h2>ขั้นตอนง่าย ระบบรวดเร็ว</h2>
-                            <p>เพียง "ชำระค่าบริการ" แล้วให้ระบบดูแลคุณ</p>
+                            <h2>"ชำระเงิน...สะดวก รวดเร็ว"</h2>
+                            <p>สแกนจ่ายง่ายๆ ผ่านระบบ QR code</p>
                             <img src="step3.jpg" alt="step-card3" style="margin-top:20px;width:100%;max-width:400px">
                         </div>
 
                         <div class="step-card" data-step="4">
-                            <h3>4 Confirmation & Binding</h3>
-                            <h2>เข้าสู่ระบบเจ้าของร้าน</h2>
-                            <p>ด้วย LINE OA ได้ทันที</p>
+                            <h3>4 Connect & Start</h3>
+                            <h2>"ยืนยันตัวตน...พร้อมลุย"</h2>
+                            <p>เชื่อมต่อบัญชีแล้วเข้าใช้งาน Insight ได้เลย</p>
                             <img src="step4.jpg" alt="step-card4" style="margin-top:20px;width:100%;max-width:400px">
+                        </div>
+
+                        <div class="step-card" data-step="5">
+                            <h3>5 Growth</h3>
+                            <h2>"เติบโต...ด้วยข้อมูลจริง"</h2>
+                            <p>เปลี่ยน Data ให้เป็นยอดขาย พร้อมวัดผลความสำเร็จได้ทุกวัน</p>
+                            <img src="step5.jpg" alt="step-card5" style="margin-top:20px;width:100%;max-width:400px">
                         </div>
 
                     </div>
@@ -1093,16 +1206,29 @@
                         .scene-4-grid {
                             grid-template-columns: 1fr;
                             text-align: center;
+                            gap: 24px;
                         }
 
                         .text-col {
                             padding-left: 0;
                             text-align: center;
-                            margin-bottom: 30px;
+                            margin-bottom: 20px;
+                        }
+
+                        .anim-text {
+                            font-size: 1.8rem;
+                        }
+
+                        #registration-subheadline {
+                            font-size: 2rem !important;
                         }
 
                         .video-col {
                             justify-content: center;
+                        }
+
+                        .video-wrapper {
+                            max-width: 100% !important;
                         }
                     }
                 </style>
@@ -1121,7 +1247,7 @@
                                     style="position:relative;padding-bottom:177.77%;height:0;overflow:hidden;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,0.5);background:rgba(0,0,0,0.2);">
                                     <video id="promo-video"
                                         style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" controls
-                                        muted loop playsinline>
+                                        loop playsinline>
                                         <source src="MIA.mp4" type="video/mp4">
                                     </video>
                                 </div>
@@ -1187,11 +1313,20 @@
 
                     @media (max-width: 768px) {
                         .scene-5 h2 {
-                            font-size: 2.8rem;
+                            font-size: 2.5rem;
                         }
 
                         .scene-5 p.hint {
                             font-size: 1.1rem;
+                            margin-bottom: 32px;
+                        }
+
+                        .scene-5 .btn-primary {
+                            padding: 16px 40px;
+                            font-size: 1.1rem;
+                            width: 100%;
+                            max-width: 300px;
+                            justify-content: center;
                         }
                     }
                 </style>
@@ -1199,7 +1334,7 @@
                     <h2>พาร์ทเนอร์โตทันเกม รุ่นแรก</h2>
                     <p class="hint">ข้อเสนอพิเศษสำหรับ 100 ร้านค้าแรก ที่พร้อมจะเติบโตไปกับเรา</p>
                     <div class="cta-wrap">
-                        <a class="btn btn-primary" href="#">รับสิทธิ์ผู้ก่อตั้ง</a>
+                        <a class="btn btn-primary" href="#">สมัครสมาชิก</a>
                         <div class="hint-small">
                             เราจะติดต่อกลับภายใน 24 ชั่วโมง
                         </div>
@@ -1285,6 +1420,25 @@
             (function () {
                 const scenes = document.querySelectorAll('.scene');
                 const video = document.getElementById('promo-video');
+                // Start muted so autoplay is allowed on most browsers
+                if (video) {
+                    video.muted = true;
+                }
+
+                const enableSound = () => {
+                    if (video && video.muted) {
+                        video.muted = false;
+                        if (!video.muted) {
+                            // Sound enabled successfully
+                            ['click', 'touchstart', 'mousedown', 'keydown'].forEach(evt =>
+                                document.removeEventListener(evt, enableSound)
+                            );
+                        }
+                    }
+                };
+                ['click', 'touchstart', 'mousedown', 'keydown'].forEach(evt =>
+                    document.addEventListener(evt, enableSound)
+                );
 
                 let videoTimeout;
 
@@ -1294,9 +1448,10 @@
                             e.target.classList.add('active');
                             if (e.target.classList.contains('scene-4') && video) {
                                 clearTimeout(videoTimeout);
-                                videoTimeout = setTimeout(() => {
-                                    video.play().catch(err => console.log("Autoplay prevented:", err));
-                                }, 2000);
+                                // Autoplay muted; user interaction will unmute via enableSound()
+                                video.play().catch(err => {
+                                    console.log("Autoplay prevented:", err);
+                                });
                             }
                         } else {
                             e.target.classList.remove('active');
