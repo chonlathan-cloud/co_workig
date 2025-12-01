@@ -1248,7 +1248,7 @@
                                     <video id="promo-video"
                                         style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" controls
                                         loop playsinline>
-                                        <source src="MIA.mp4" type="video/mp4">
+                                        <source src="https://storage.googleapis.com/lineoa-media-dev/souce/MIA.mp4" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
@@ -1420,10 +1420,6 @@
             (function () {
                 const scenes = document.querySelectorAll('.scene');
                 const video = document.getElementById('promo-video');
-                // Start muted so autoplay is allowed on most browsers
-                if (video) {
-                    video.muted = true;
-                }
 
                 const enableSound = () => {
                     if (video && video.muted) {
@@ -1448,9 +1444,12 @@
                             e.target.classList.add('active');
                             if (e.target.classList.contains('scene-4') && video) {
                                 clearTimeout(videoTimeout);
-                                // Autoplay muted; user interaction will unmute via enableSound()
-                                video.play().catch(err => {
-                                    console.log("Autoplay prevented:", err);
+                                // Try to play unmuted first
+                                video.muted = false;
+                                video.play().catch(error => {
+                                    console.log("Autoplay with sound prevented, falling back to muted:", error);
+                                    video.muted = true;
+                                    video.play().catch(err => console.log("Muted autoplay also prevented:", err));
                                 });
                             }
                         } else {

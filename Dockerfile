@@ -26,6 +26,7 @@ COPY step3.jpg /usr/share/nginx/html/
 COPY step4.jpg /usr/share/nginx/html/
 COPY step5.jpg /usr/share/nginx/html/
 COPY MIA.mp4 /usr/share/nginx/html/
+COPY google0338f86660c498f4.html /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
